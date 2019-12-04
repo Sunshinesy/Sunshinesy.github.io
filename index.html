@@ -3,11 +3,17 @@
 <title>我的博客</title>
 </head>
 <body>
+<p id='hello'>个人博客</p>
+<hr> 
 <p id='helloblog'>Hello to my blog</p>
+</body>
 <script>
 $('#helloblog').click(function(){
 alert('Hello to my blog!');
 });
+var btn = document.getElementById("helloblog");
+btn.onclick=function(){
+alert("hello blog!");
+}
 </script>
-</body>
 </html>
