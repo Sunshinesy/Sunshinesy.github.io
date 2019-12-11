@@ -84,3 +84,39 @@ var searchFunc = function(path, search_id, content_id) {
         }
     });
 }
+
+var gethtml = function(path) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text()
+                };
+            }).get();
+            datas.forEach(function(data) {
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim();
+                // only match artiles with not empty titles and contents
+                if(data_title == 'logomenu' && data_content != '') {
+                    $('#testhead').val(data_content);
+                }else if(data_title == 'major' && data_content != '') {
+                    $('#testfoot').append(data_content);
+				}else if(data_title == 'sidecon' && data_content != '') {
+                    $('#testfoot').append(data_content);
+				}else if(data_title == 'footer' && data_content != '') {
+                    $('#testfoot').append(data_content);
+				}else{
+					$('#logomenu').append("加载失败！");
+					$('#major').append("加载失败！");
+					$('#sidecon').append("加载失败！");
+					$('#footer').append("加载失败！");					
+				}
+            });
+        }
+    });
+}
