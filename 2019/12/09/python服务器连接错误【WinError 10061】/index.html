@@ -161,9 +161,6 @@ if __name__ == '__main__':
     var common_path = '/common/common.xml';
     gethtml(common_path);
     
-    $('#home').removeClass('current');
-    $('#archives').addClass('current');
-    
     var search_path = 'search.xml';
     if (search_path.length == 0) {
       search_path = 'search.xml';
@@ -179,6 +176,12 @@ if __name__ == '__main__':
          var s = document.getElementsByTagName("script")[0];
          s.parentNode.insertBefore(hm, s);
      })();
+      
+    function setclass(classid){
+    	$('#home').removeClass('current');
+    	$('#'+classid).addClass('current');
+    }
+    setclass('archives');
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
