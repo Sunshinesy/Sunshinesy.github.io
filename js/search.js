@@ -106,16 +106,16 @@ var gethtml = function(path) {
                     $('#header').append(data_content);
                 }else if(data_title == 'major' && data_content != '') {
                     $('#major').append(data_content);
-				}else if(data_title == 'sidecon' && data_content != '') {
+		}else if(data_title == 'sidecon' && data_content != '') {
                     $('#sidecon').append(data_content);
-				}else if(data_title == 'footer' && data_content != '') {
+		}else if(data_title == 'footer' && data_content != '') {
                     $('#footer').append(data_content);
-				}else{
-					$('#header').append("加载失败！");
-					$('#major').append("加载失败！");
-					$('#sidecon').append("加载失败！");
-					$('#footer').append("加载失败！");					
-				}
+		}else{
+		    $('#header').append("加载失败！");
+		    $('#major').append("加载失败！");
+		    $('#sidecon').append("加载失败！");
+		    $('#footer').append("加载失败！");					
+		}
             });
         }
     });
