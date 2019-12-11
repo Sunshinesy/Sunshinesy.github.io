@@ -10,8 +10,8 @@
 			<span class="description" id="sun12">&nbsp&nbsp&nbsp&nbsp&nbsp清风度思量~</span>
 			<br>
 			&nbsp&nbsp&nbsp&nbsp&nbsp<a id="logo" href="/.">Sunshiinesy'blog</a>
-		</div>
-		<div id="nav-menu">
+	    </div>
+	    <div id="nav-menu">
 			<a id="home" class="current" href="/."> <i class="fa fa-home"> 主页</i>
 			</a><a id="archives" href="/archives/"> <i class="fa fa-archive"> 文章</i>
 			</a><a id="history"href="/history"> <i class="fa fa-calendar"> 历史</i>
