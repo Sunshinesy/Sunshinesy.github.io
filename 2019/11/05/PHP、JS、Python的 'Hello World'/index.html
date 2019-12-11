@@ -143,6 +143,12 @@ if __name__ == '__main__':
          var s = document.getElementsByTagName("script")[0];
          s.parentNode.insertBefore(hm, s);
      })();
+      
+    $(window).ready(function(){
+	      $('#home').removeClass('current');
+    	  $('#archives').addClass('current');
+        alert('archives');
+    });
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
