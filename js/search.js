@@ -102,16 +102,16 @@ var gethtml = function(path) {
                 var data_title = data.title.trim().toLowerCase();
                 var data_content = data.content.trim();
                 // only match artiles with not empty titles and contents
-                if(data_title == 'logomenu' && data_content != '') {
-                    $('#testhead').val(data_content);
+                if(data_title == 'header' && data_content != '') {
+                    $('#header').append(data_content);
                 }else if(data_title == 'major' && data_content != '') {
-                    $('#testfoot').append(data_content);
+                    $('#major').append(data_content);
 				}else if(data_title == 'sidecon' && data_content != '') {
-                    $('#testfoot').append(data_content);
+                    $('#sidecon').append(data_content);
 				}else if(data_title == 'footer' && data_content != '') {
-                    $('#testfoot').append(data_content);
+                    $('#footer').append(data_content);
 				}else{
-					$('#logomenu').append("加载失败！");
+					$('#header').append("加载失败！");
 					$('#major').append("加载失败！");
 					$('#sidecon').append("加载失败！");
 					$('#footer').append("加载失败！");					
