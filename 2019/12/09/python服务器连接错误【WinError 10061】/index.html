@@ -43,7 +43,7 @@
             </a>
             <div class="clear">
               <div class="toc-article" id="toc">
-                <div class="toc-title" onclick="setclass('archives')">文章目录</div>
+                <div class="toc-title">文章目录</div>
               </div>
             </div>
             <div class="post-content">
@@ -177,12 +177,11 @@ if __name__ == '__main__':
          s.parentNode.insertBefore(hm, s);
      })();
       
-    function setclass(classid){
-    	$('#home').removeClass('current');
-    	$('#'+classid).addClass('current');
-      alert(classid);
-    }
-    setclass('archives');
+    $ (window).unload (function() {
+	    $('#home').removeClass('current');
+    	$('#archives').addClass('current');
+      alert('archives');
+    });
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
