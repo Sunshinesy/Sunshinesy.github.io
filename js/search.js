@@ -104,15 +104,12 @@ var gethtml = function(path) {
                 // only match artiles with not empty titles and contents
                 if(data_title == 'header' && data_content != '') {
                     $('#header').append(data_content);
-                }else if(data_title == 'major' && data_content != '') {
-                    $('#major').append(data_content);
 		}else if(data_title == 'sidecon' && data_content != '') {
                     $('#sidecon').append(data_content);
 		}else if(data_title == 'footer' && data_content != '') {
                     $('#footer').append(data_content);
 		}else{
 		    $('#header').append("加载失败！");
-		    $('#major').append("加载失败！");
 		    $('#sidecon').append("加载失败！");
 		    $('#footer').append("加载失败！");					
 		}
