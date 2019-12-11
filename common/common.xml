@@ -2,7 +2,7 @@
 <common> 
         
     <entry>
-      <title>header</title>
+      <title>footer</title>
       <content type="html">
 	  <![CDATA[
 	    <div class="site-name">
