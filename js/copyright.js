@@ -66,11 +66,11 @@
                 }
                 //附加到复制内容后面的版权内容
                 var appendText =
-                    '\n----------------------------------------------------------------\n'
+                    '\n-------------------------------------------------------------\n'
                     + '作者：Sunshiinesy\n'
                     + '来源：Sunshiinesy\'blog\n'
                     + '原文：' + url + '\n'
-                    + copyright + '\n';
+                    + copyright + '\nCopyright © 2019 Sunshiinesy \'blog. 作者Github: Sunshiinesy. Theme by Cho.';
 
                 //文本格式附加版权信息
                 textData += appendText;
@@ -100,6 +100,6 @@
         }
         //监听copy事件（为了兼容IE，就不用addEventListener了）
         document.body.oncopy = function(e) {
-            setClipboardText(e, 50);
+            setClipboardText(e, 100);
         }
         //本脚本参考：https://www.xiebruce.top/620.html
