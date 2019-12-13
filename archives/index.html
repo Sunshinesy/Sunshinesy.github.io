@@ -53,7 +53,7 @@
     <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
     <script>
     var common_path = '/common/common.xml';
-    gethtml(common_path);
+    gethtml(common_path,"archives");
     
     $('#home').removeClass('current');
     $('#archives').addClass('current');
@@ -73,11 +73,6 @@
          var s = document.getElementsByTagName("script")[0];
          s.parentNode.insertBefore(hm, s);
      })();
-      
-    $(window).ready(function(){
-	  $('#home').removeClass('current');
-    	  $('#archives').addClass('current');
-    });
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
