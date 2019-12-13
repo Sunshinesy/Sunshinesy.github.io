@@ -163,7 +163,7 @@ if __name__ == '__main__':
     <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
     <script>
     var common_path = '/common/common.xml';
-    gethtml(common_path);
+    gethtml(common_path,"archives");
     
     var search_path = 'search.xml';
     if (search_path.length == 0) {
@@ -181,10 +181,6 @@ if __name__ == '__main__':
          s.parentNode.insertBefore(hm, s);
      })();
       
-    $(window).ready(function(){
-	$('#home').removeClass('current');
-    	$('#archives').addClass('current');
-    });
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
