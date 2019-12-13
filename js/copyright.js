@@ -57,6 +57,7 @@
             //如果复制的内容超过maxCount个字符则添加版权信息
             if(textData.length >= maxCount){
                 var url = window.location.href;
+                url=decodeURIComponent(url);
                 //文章类型：original原创、repirnt转载，如果你的博客有这个要求，则根据你博客
                 var copyright = '';
                 if(article_type=='original'){
