@@ -128,10 +128,7 @@ if __name__ == '__main__':
     <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
     <script>
     var common_path = '/common/common.xml';
-    gethtml(common_path);
-    
-    $('#home').removeClass('current');
-    $('#archives').addClass('current');
+    gethtml(common_path,"archives");
     
     var search_path = 'search.xml';
     if (search_path.length == 0) {
