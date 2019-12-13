@@ -44,12 +44,16 @@
             <div class="clear">
               <div class="toc-article" id="toc">
                 <div class="toc-title">文章目录</div>
+		<ol class="toc">
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#服务器程序"><span class="toc-number">一、</span> <span class="toc-text">服务器程序</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#客户端程序"><span class="toc-number">二、</span> <span class="toc-text">客户端程序</span></a></li>
+		</ol>
               </div>
             </div>
             <div class="post-content">
               <p>服务器主机上用Python写了一个服务器F，但是在使用的时候，服务器电脑上的客户端C可以连接使用服务器F，相同局域网下的其他电脑上的客户端C却无法访问服务器F。</p>
               <p>为了找到异常原因，写了如下两个简单的服务器和客户端程序。</p>
-              <h3>一、服务器程序</h3>
+              <h3 id="服务器程序">一、服务器程序</h3>
               <p>创建网络地址为"10.3.116.83"，端口为"5566"的服务器</p>
               <pre><code>from socket import socket, SOCK_STREAM, AF_INET
 from base64 import b64encode
@@ -97,7 +101,7 @@ def main():
 
 if __name__ == '__main__':
     main()</code></pre>
-              <h3>二、客户端程序</h3>
+              <h3 id="客户端程序">二、客户端程序</h3>
               <p>创建客户端，连接到服务器("10.3.116.83",5566)</p>
               <pre><code>from socket import socket
 from json import loads
