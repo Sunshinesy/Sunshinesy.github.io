@@ -104,7 +104,7 @@ var gethtml = function(path,menu) {
                 // only match artiles with not empty titles and contents
                 if(data_title == 'header' && data_content != '') {
 		    if(menu!=""){
-			data_content=data_content.replace('id='+menu,'id='+menu+'class="current"');
+			data_content=data_content.replace('id="'+menu+'"','id="'+menu+'" class="current"');
 		    }
                     $('#header').append(data_content);
 		}else if(data_title == 'sidecon' && data_content != '') {
