@@ -85,7 +85,7 @@ var searchFunc = function(path, search_id, content_id) {
     });
 }
 
-var gethtml = function(path) {
+var gethtml = function(path,menu="") {
     'use strict';
     $.ajax({
         url: path,
@@ -103,6 +103,10 @@ var gethtml = function(path) {
                 var data_content = data.content.trim();
                 // only match artiles with not empty titles and contents
                 if(data_title == 'header' && data_content != '') {
+		    if(menu!=""){
+			data_content=data_content.replace('id="home" class="current"','id="home"');
+			data_content=data_content.replace('id='+menu,'id='+menu+'class="current"');
+		    }
                     $('#header').append(data_content);
 		}else if(data_title == 'sidecon' && data_content != '') {
                     $('#sidecon').append(data_content);
