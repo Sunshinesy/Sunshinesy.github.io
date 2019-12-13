@@ -85,7 +85,7 @@ var searchFunc = function(path, search_id, content_id) {
     });
 }
 
-var gethtml = function(path,menu="") {
+var gethtml = function(path,menu) {
     'use strict';
     $.ajax({
         url: path,
