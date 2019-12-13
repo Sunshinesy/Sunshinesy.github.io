@@ -44,11 +44,16 @@
             <div class="clear">
               <div class="toc-article" id="toc">
                 <div class="toc-title">文章目录</div>
+		<ol class="toc">
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#PHP Hello World"><span class="toc-number">1.</span> <span class="toc-text">PHP Hello World</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#JS Hello World"><span class="toc-number">2.</span> <span class="toc-text">JS Hello World</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#Python Hello World"><span class="toc-number">2.</span> <span class="toc-text">Python Hello World</span></a></li>
+		</ol>
               </div>
             </div>
             <div class="post-content">
               <p>一门新的编程语言学习，大多以"hello world"开始，工作之余总结下PHP、JS、Python的"hello world"实现方式，总结与回顾下三种语言的基础知识。</p>
-              <h3>一、PHP Hello World</h3>
+              <h3 id="PHP Hello World">一、PHP Hello World</h3>
               <p>1、最简单的方式直接在html文档中加入以下代码，即可输出"Hello World"</p>
               <pre><code>&lt;?php echo "Hello World"; ?&gt;</code></pre>
               <p>以上结果输出：</p>
@@ -66,7 +71,7 @@ echo $Hello;                                  //输出$Hello
 ?&gt;</code></pre>
               <p>以上结果输出：</p>
               <pre>Hello World</pre>
-              <h3>二、JS Hello World</h3>
+              <h3 id="JS Hello World">二、JS Hello World</h3>
               <p>1、JS常用在网页交互上，因此使用alert()函数来生成JS网页弹窗是不错的选择：</p>
               <pre><code>&lt;script&gt;alert("Hello World")&lt;/script&gt;</code></pre>
               <p>以上结果输出弹窗：</p>
@@ -80,7 +85,7 @@ HW();
 &lt;/script&gt;</code></pre>
               <p>以上结果输出：</p>
               <pre><img src="/imgs/jsalert.png"></pre>
-              <h3>三、Python Hello World</h3>
+              <h3 id="Python Hello World">三、Python Hello World</h3>
               <p>1、Python 可以简单的通过print()函数来输出"Hello World"：</p>
               <pre><code># -*- coding:utf-8 -*-
 print('Hello World')</code></pre>
