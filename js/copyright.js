@@ -22,7 +22,7 @@
         }
 
         //自定义设置剪贴板内容
-        function setClipboardText(event,maxCount,article_type = 'origi1nal'){
+        function setClipboardText(event,maxCount,article_type = 'original'){
             var IEVersion = getIeVersion();
             //阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）。
             if(IEVersion>-1 && IEVersion!='edge' && IEVersion<11){
