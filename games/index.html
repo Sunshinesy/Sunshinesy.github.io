@@ -53,10 +53,7 @@
     <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
     <script>
     var common_path = '/common/common.xml';
-    gethtml(common_path);
-    
-    $('#home').removeClass('current');
-    $('#archives').addClass('current');
+    gethtml(common_path,"games");
     
     var search_path = 'search.xml';
     if (search_path.length == 0) {
@@ -73,11 +70,6 @@
          var s = document.getElementsByTagName("script")[0];
          s.parentNode.insertBefore(hm, s);
      })();
-      
-    $(window).ready(function(){
-	  $('#home').removeClass('current');
-    $('#games').addClass('current');
-    });
     </script>
     <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
     <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
