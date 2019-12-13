@@ -98,8 +98,4 @@
                 event.clipboardData.setData("text/plain",textData);
             }
         }
-        //监听copy事件（为了兼容IE，就不用addEventListener了）
-        document.body.oncopy = function(e) {
-            setClipboardText(e, 100);
-        }
         //本脚本参考：https://www.xiebruce.top/620.html
