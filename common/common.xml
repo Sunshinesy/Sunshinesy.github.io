@@ -80,8 +80,9 @@
               <i class="fa fa-file-o"> 最近文章</i>
             </div>
             <ul class="post-list">
+	      <li class="post-list-item"><a class="post-list-link" href="/2019/12/13/JS获取网页网址乱码问题</a></li>
+	      <li class="post-list-item"><a class="post-list-link" href="/2019/12/09/python服务器连接错误【WinError 10061】">python服务器连接错误【WinError 10061】</a></li>
               <li class="post-list-item"><a class="post-list-link" href="/2019/11/05/PHP、JS、Python的 'Hello World'/">PHP、JS、Python的 'Hello World'</a></li>
-              <li class="post-list-item"><a class="post-list-link" href="/2019/12/09/python服务器连接错误【WinError 10061】">python服务器连接错误【WinError 10061】</a></li>
             </ul>
           </div>
           <div class="widget">
