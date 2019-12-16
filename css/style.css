@@ -17,6 +17,9 @@ html, button, input, select, textarea,
   /* Set your content font stack here: */
   font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important; }
 
+.pure-g [class*="pure-u"] {
+  padding: 0 30px; }
+
 body {
   background-color: #FFF;
   color: #444;
@@ -27,7 +30,7 @@ body {
 
 .body_container {
   padding: 0 60px;
-  max-width: 99%;
+  max-width: 100%;
   margin: 0 auto; }
 
 .content_container {
