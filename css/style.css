@@ -34,7 +34,7 @@ body {
   margin: 0 auto; }
 
 .content_container {
-  padding-right: 10px;
+  padding-right: 5px;
   padding-top: 20px; }
 
 a, button.submit {
@@ -99,12 +99,12 @@ div {
 
 #sidebar {
   border-left: 1px solid #ddd;
-  padding-left: 35px;
+  padding-left: 30px;
   margin-top: 40px;
   word-wrap: break-word;
   height: 100%; }
   #sidebar .widget {
-    margin-bottom: 30px; }
+    margin-bottom: 20px; }
     #sidebar .widget .widget-title {
       color: #6E7173;
       line-height: 2.7;
