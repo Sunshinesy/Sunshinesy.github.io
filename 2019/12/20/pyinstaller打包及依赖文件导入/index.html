@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="description">
+<title>Sunshinesy 'blog</title>
+<link rel="stylesheet" href="/js/highlight/styles/tomorrow-night-bright.css">
+<script src="/js/highlight/highlight.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=0.1.1">
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"> -->
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml">
+<script src="/js/copyright.js"></script>
+</head>
+<body>
+  <div class="body_container" style="padding: 0 0px;">
+    <div id="header" style="background: url('/imgs/baimama.jpg') no-repeat; background-size: 100% 100%">
+    <!-- logo and menu-->
+    </div>
+    <div class="pure-g" id="layout">
+      <div class="pure-u-1 pure-u-md-3-4">
+        <div id="major" class="content_container">
+          <div class="post">
+            <!--博客全文 -->
+            <h1 class="post-title">PHP、JS、Python之 "Hello World"</h1>
+            <div class="post-meta">
+              2019-11-05 <span> | </span> <span class="category"> <a href="/categories/Python/">Python</a>
+              </span>
+              <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+              <span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+            </div>
+            <a class="disqus-comment-count" data-disqus-identifier="2019/11/05/PHP、JS、Python的 'Hello World'/"
+              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#disqus_thread"></a> <a class="disqus-comment-count"
+              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#vcomment"> <span class="valine-comment-count" data-xid="/2019/11/05/PHP、JS、Python的 'Hello World'/"></span><span>条评论</span>
+            </a>
+            <div class="clear">
+              <div class="toc-article" id="toc">
+                <div class="toc-title">文章目录</div>
+		<ol class="toc">
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#PHP Hello World"><span class="toc-number">一、</span> <span class="toc-text">安装Pyinstaller</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#JS Hello World"><span class="toc-number">二、</span> <span class="toc-text">使用Pyinstaller</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#Python Hello World"><span class="toc-number">三、</span> <span class="toc-text">注意事项</span></a></li>
+      <li class="toc-item toc-level-3"><a class="toc-link" href="#Python Hello World"><span class="toc-number">四、</span> <span class="toc-text">生成exe文件</span></a></li>
+		</ol>
+              </div>
+            </div>
+            <div class="post-content">
+              <p>一门新的编程语言学习，大多以"hello world"开始，工作之余总结下PHP、JS、Python的"hello world"实现方式，总结与回顾下三种语言的基础知识。</p>
+              <h3 id="PHP Hello World">一、PHP Hello World</h3>
+              <p>1、最简单的方式直接在html文档中加入以下代码，即可输出"Hello World"</p>
+              <pre><code>&lt;?php echo "Hello World"; ?&gt;</code></pre>
+              <p>以上结果输出：</p>
+              <pre>Hello World</pre>
+              <p>2、第二种方式，若有完整的服务器框架，例如采用MVC框架模型输出"Hello World"，简单一点，采用VC模型即可，建立类与视图函数，再简单一点，在视图文件或者网页中，直接定义类与函数，然后通过类创建对象，调用函数，输出“Hello World"。以下上代码：</p>
+              <pre><code>&lt;?php 
+class Hello{                                 //建立Hello 类
+  public function World(){         //建立World() 函数
+    return "Hello World";            //返回值"Hello World"
+  }
+}
+$HW=new Hello;                           //通过Hello类创建一个对象$HW
+$Hello=$HW->World();                //通过对象$HW调用类中的World() 函数，返回值赋给$Hello
+echo $Hello;                                  //输出$Hello
+?&gt;</code></pre>
+              <p>以上结果输出：</p>
+              <pre>Hello World</pre>
+              <h3 id="JS Hello World">二、JS Hello World</h3>
+              <p>1、JS常用在网页交互上，因此使用alert()函数来生成JS网页弹窗是不错的选择：</p>
+              <pre><code>&lt;script&gt;alert("Hello World")&lt;/script&gt;</code></pre>
+              <p>以上结果输出弹窗：</p>
+              <pre><img src="/imgs/jsalert.png"></pre>
+              <p>2、js函数编写完成后是可以直接使用的，因此可以直接写一个弹出"Hello World"的函数HW()，然后调用这个函数即可，下面上代码：</p>
+              <pre><code>&lt;script&gt;
+function HW(){
+     alert("Hello World")
+     }
+HW();
+&lt;/script&gt;</code></pre>
+              <p>以上结果输出：</p>
+              <pre><img src="/imgs/jsalert.png"></pre>
+              <h3 id="Python Hello World">三、Python Hello World</h3>
+              <p>1、Python 可以简单的通过print()函数来输出"Hello World"：</p>
+              <pre><code># -*- coding:utf-8 -*-
+print('Hello World')</code></pre>
+              <p>运行Python代码，在Console中可看到输出结果：</p>
+              <pre>Hello World</pre>
+              <p>2、当然，Python的函数也是可以直接使用的，因此可以直接写一个函数HW()打印"Hello World"，然后调用这个函数即可，下面上代码：</p>
+              <pre><code># -*- coding:utf-8 -*-
+def HW():
+    print('Hello World')
+if __name__ == '__main__':
+    HW()</code></pre>
+              <p>运行Python代码，在Console中可看到输出结果：</p>
+              <pre>Hello World</pre>
+              <p>以简单的Hello World，了解语言的简单结构与语法，接下来就是系统的学习与掌握相关知识了，祝好！</p>
+              <nav class="page-navigator"></nav>
+              <hr>
+            </div>
+          </div>
+          <!--           <script id="dsq-count-scr" src="//sunshiinesy.disqus.com/count.js" async></script> -->
+        </div>
+      </div>
+      <div id="sidecon" class="pure-u-1-4 hidden_mid_and_down">
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <p align="center">
+          <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+          <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>
+        </p>
+        <div id="footer">
+        </div>
+      </div>
+      <div class="pure-u-1-4 hidden_mid_and_down"></div>
+    </div>
+    <a class="show" id="rocket" href="#top"></a>
+    <script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script>
+    <script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css">
+    <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
+    <script>
+    var common_path = '/common/common.xml';
+    gethtml(common_path,"archives");
+    
+    var search_path = 'search.xml';
+    if (search_path.length == 0) {
+      search_path = 'search.xml';
+    }
+    var path = '/' + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+         var hm = document.createElement("script");
+         hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+         var s = document.getElementsByTagName("script")[0];
+         s.parentNode.insertBefore(hm, s);
+     })();
+    //监听copy事件（兼容IE）
+    document.body.oncopy = function(e) {
+         setClipboardText(e, 100);
+    }
+    </script>
+    <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
+    <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
+  </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+ <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+<div>
+  <a href="https://github.com/sunshinesy"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>
