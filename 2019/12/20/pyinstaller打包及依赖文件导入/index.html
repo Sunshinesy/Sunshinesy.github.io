@@ -30,79 +30,117 @@
         <div id="major" class="content_container">
           <div class="post">
             <!--博客全文 -->
-            <h1 class="post-title">PHP、JS、Python之 "Hello World"</h1>
+            <h1 class="post-title">pyinstaller打包及依赖文件导入</h1>
             <div class="post-meta">
-              2019-11-05 <span> | </span> <span class="category"> <a href="/categories/Python/">Python</a>
+              2019-12-20 <span> | </span> <span class="category"> <a href="/categories/Python/">Python</a>
               </span>
               <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
               <span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
             </div>
-            <a class="disqus-comment-count" data-disqus-identifier="2019/11/05/PHP、JS、Python的 'Hello World'/"
-              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#disqus_thread"></a> <a class="disqus-comment-count"
-              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#vcomment"> <span class="valine-comment-count" data-xid="/2019/11/05/PHP、JS、Python的 'Hello World'/"></span><span>条评论</span>
+            <a class="disqus-comment-count" data-disqus-identifier="2019/12/20/pyinstaller打包及依赖文件导入/"
+              href="/2019/12/20/pyinstaller打包及依赖文件导入/#disqus_thread"></a> <a class="disqus-comment-count"
+              href="/2019/12/20/pyinstaller打包及依赖文件导入/#vcomment"> <span class="valine-comment-count" data-xid="/2019/12/20/pyinstaller打包及依赖文件导入/"></span><span>条评论</span>
             </a>
             <div class="clear">
               <div class="toc-article" id="toc">
                 <div class="toc-title">文章目录</div>
 		<ol class="toc">
-		  <li class="toc-item toc-level-3"><a class="toc-link" href="#PHP Hello World"><span class="toc-number">一、</span> <span class="toc-text">安装Pyinstaller</span></a></li>
-		  <li class="toc-item toc-level-3"><a class="toc-link" href="#JS Hello World"><span class="toc-number">二、</span> <span class="toc-text">使用Pyinstaller</span></a></li>
-		  <li class="toc-item toc-level-3"><a class="toc-link" href="#Python Hello World"><span class="toc-number">三、</span> <span class="toc-text">注意事项</span></a></li>
-      <li class="toc-item toc-level-3"><a class="toc-link" href="#Python Hello World"><span class="toc-number">四、</span> <span class="toc-text">生成exe文件</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#安装Pyinstaller"><span class="toc-number">一、</span> <span class="toc-text">安装Pyinstaller</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#使用Pyinstaller"><span class="toc-number">二、</span> <span class="toc-text">使用Pyinstaller</span></a></li>
+		  <li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">三、</span> <span class="toc-text">注意事项</span></a></li>
+          <li class="toc-item toc-level-3"><a class="toc-link" href="#生成exe文件"><span class="toc-number">四、</span> <span class="toc-text">生成exe文件</span></a></li>
 		</ol>
               </div>
             </div>
             <div class="post-content">
-              <p>一门新的编程语言学习，大多以"hello world"开始，工作之余总结下PHP、JS、Python的"hello world"实现方式，总结与回顾下三种语言的基础知识。</p>
-              <h3 id="PHP Hello World">一、PHP Hello World</h3>
-              <p>1、最简单的方式直接在html文档中加入以下代码，即可输出"Hello World"</p>
-              <pre><code>&lt;?php echo "Hello World"; ?&gt;</code></pre>
-              <p>以上结果输出：</p>
-              <pre>Hello World</pre>
-              <p>2、第二种方式，若有完整的服务器框架，例如采用MVC框架模型输出"Hello World"，简单一点，采用VC模型即可，建立类与视图函数，再简单一点，在视图文件或者网页中，直接定义类与函数，然后通过类创建对象，调用函数，输出“Hello World"。以下上代码：</p>
-              <pre><code>&lt;?php 
-class Hello{                                 //建立Hello 类
-  public function World(){         //建立World() 函数
-    return "Hello World";            //返回值"Hello World"
-  }
-}
-$HW=new Hello;                           //通过Hello类创建一个对象$HW
-$Hello=$HW->World();                //通过对象$HW调用类中的World() 函数，返回值赋给$Hello
-echo $Hello;                                  //输出$Hello
-?&gt;</code></pre>
-              <p>以上结果输出：</p>
-              <pre>Hello World</pre>
-              <h3 id="JS Hello World">二、JS Hello World</h3>
-              <p>1、JS常用在网页交互上，因此使用alert()函数来生成JS网页弹窗是不错的选择：</p>
-              <pre><code>&lt;script&gt;alert("Hello World")&lt;/script&gt;</code></pre>
-              <p>以上结果输出弹窗：</p>
-              <pre><img src="/imgs/jsalert.png"></pre>
-              <p>2、js函数编写完成后是可以直接使用的，因此可以直接写一个弹出"Hello World"的函数HW()，然后调用这个函数即可，下面上代码：</p>
-              <pre><code>&lt;script&gt;
-function HW(){
-     alert("Hello World")
-     }
-HW();
-&lt;/script&gt;</code></pre>
-              <p>以上结果输出：</p>
-              <pre><img src="/imgs/jsalert.png"></pre>
-              <h3 id="Python Hello World">三、Python Hello World</h3>
-              <p>1、Python 可以简单的通过print()函数来输出"Hello World"：</p>
-              <pre><code># -*- coding:utf-8 -*-
-print('Hello World')</code></pre>
-              <p>运行Python代码，在Console中可看到输出结果：</p>
-              <pre>Hello World</pre>
-              <p>2、当然，Python的函数也是可以直接使用的，因此可以直接写一个函数HW()打印"Hello World"，然后调用这个函数即可，下面上代码：</p>
-              <pre><code># -*- coding:utf-8 -*-
-def HW():
-    print('Hello World')
-if __name__ == '__main__':
-    HW()</code></pre>
-              <p>运行Python代码，在Console中可看到输出结果：</p>
-              <pre>Hello World</pre>
-              <p>以简单的Hello World，了解语言的简单结构与语法，接下来就是系统的学习与掌握相关知识了，祝好！</p>
+              <p>python脚本如果在没有安装python的机器上不能运行，所以将脚本打包成exe文件，降低脚本对环境的依赖性，同时运行更加迅速。这里就需要用到Pyinstaller ，Pyinstaller 可以用来将 python 程序打包成独立可执行程序，让 python 程序能在没有装python环境的机器上运行。下面总结一下使用Pyinstaller打包Python程序为exe文件的方法与注意事项。</p>
+              <h3 id="安装Pyinstaller">一、安装Pyinstaller</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="1.1">
+                    <span class="toc-text">安装pywin32</span>
+                    <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">下载安装文件：查找到跟自己适用的python版本及window系统版本匹配的 pywin32 ，下载后安装 </span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">使用pip命令安装：pip install pywin32</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="1.2>
+                 <span class="toc-text">安装Pyinstaller</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">下载安装文件安装：</span><a href="http://www.pyinstaller.org/ " target="_blank">Pyinstaller官网</a></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">使用pip命令安装：pip install Pyinstaller</span></li>
+                    </ul>
+                 </li>
+              </ol>
+              <h3 id="使用Pyinstaller">二、使用Pyinstaller</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="2.1">
+                    <span class="toc-text">使用下载安装的方式安装的Pyinstaller打包方式</span><br>
+                    <span>将需要打包的文件放在解压得到的Pyinstaller文件夹中，打开cmd窗口，把路径切换到当前路径打开命令提示行，输入以下内容（最后的是文件名）：</span>
+                    <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">python pyinstaller.py -F myfile.py</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="2.2>
+                 <span class="toc-text">使用pip方式安装的Pyinstaller打包方式</span><br>
+                 <span>打开cmd窗口，把路径切换到文件所在路径(文件随便放在哪里都行)打开命令提示行，输入以下内容（最后的是文件名）：</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">pyinstaller -F myfile.py</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="2.3>
+                 <span class="toc-text">输入参数的含义</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-F 表示生成单个可执行文件</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-c 创建一个命令行程序（就是那个小黑框），这是默认的选项</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-w 表示去掉控制台窗口，这在GUI界面时非常有用。不过如果是命令行程序的话那就去掉这个选项</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-p 表示你自己自定义需要加载的类路径，一般情况下用不到</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-i 表示可执行文件的图标</span></li>
+                    </ul>
+                 </li>
+              </ol>
+              <h3 id="注意事项">三、注意事项</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="3.1">
+                    <span class="toc-text">给程序换图标的方法</span><br>
+                   <span>上面已经说过，参数-i 表示可执行文件的图标，因此输入命令中添加一个-i tubiao.ico(图标的相对路径)。打开cmd窗口，把路径切换到文件所在路径(文件随便放在哪里都行)打开命令提示行，输入以下内容：</span>
+                   <pre style="color:white">C:\Users\Administrator\Appdata\Local\Programs\Python\Scripts>pyinstaller -F -i tubiao.ico myfile.py</pre>
+                 </li>
+                 <li class="toc-item toc-level-3" id="3.2>
+                 <span class="toc-text">打包图片或引入其他文件</span><br>
+                 <span>有时候我们的程序会用到图片或其他文件，但是pyinstaller打包出来的程序是不包含这些的的，这时候程序就没办法正常运行。以打包图片为例，网上找了很多办法，要么需要配置spec，要么把图片转化成 .py 文件，然后再引入主程序py</span>
+                 <span>相比较来说，这些都比较麻烦，这里我参考了配置spec的方法，不需要去管配置spec文件，只要将图片放入程序运行目录，然后再程序中调用即可</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">主程序导入os，使用path.dirname(path.abspath(__file__))获取获取到的时主程序python文件的目录（打包前是此文件目录，打包后就是程序运行时的临时目录）</li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">在主程序中使用此路径调用图片，如：path+r'\tubiao.ico'，加上"r"使"\"不转义，否则会报错。</span></li>
+                  </ul>
+                  <span>例如我使用如下代码，去自定义程序窗口左上角的图标：</span>
+                  <pre><code>path=path.dirname(path.abspath(__file__))
+window.iconbitmap(path+r'\3D.ico')</code></pre>
+                 </li>
+              </ol>
+              <h3 id="生成exe文件">四、生成exe文件</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="3.1">
+                    <span class="toc-text">如果程序打包过程没有报错，则会生成3个文件夹（有时候是2个）和一个myfile.spec的文件，其中名为dist的文件夹中会有一个myfile.exe文件，运行一下，如果没有问题就打包成功，可以把这个exe文件单独拿出去用，其他的生成的文件和文件夹删掉就可以了。</span><br>
+                 </li>
+                 <li class="toc-item toc-level-3" id="3.2>
+                 <span class="toc-text">如果你有使用依赖文件或者图片，那么运行myfile.exe文件的时候会报错或者闪退，甚至打不开，这个时候，只要把依赖文件放入dist或者myfile文件的相同目录就可以了。</span>
+                 </li>
+              </ol>
               <nav class="page-navigator"></nav>
-              <hr>
             </div>
           </div>
           <!--           <script id="dsq-count-scr" src="//sunshiinesy.disqus.com/count.js" async></script> -->
