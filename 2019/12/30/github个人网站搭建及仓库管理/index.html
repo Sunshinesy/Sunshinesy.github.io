@@ -1,1 +1,262 @@
-13212
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="description">
+<title>Sunshinesy 'blog</title>
+<link rel="stylesheet" href="/js/highlight/styles/tomorrow-night-bright.css">
+<script src="/js/highlight/highlight.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=0.1.1">
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"> -->
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml">
+<script src="/js/copyright.js"></script>
+</head>
+<body>
+  <div class="body_container" style="padding: 0 0px;">
+    <div id="header" style="background: url('/imgs/baimama.jpg') no-repeat; background-size: 100% 100%">
+    <!-- logo and menu-->
+    </div>
+    <div class="pure-g" id="layout">
+      <div class="pure-u-1 pure-u-md-3-4">
+        <div id="major" class="content_container">
+          <div class="post">
+            <!--博客全文 -->
+            <h1 class="post-title">github个人网站搭建及仓库管理</h1>
+            <div class="post-meta">
+              2019-12-30 <span> | </span> <span class="category"> <a href="/categories/Python/">开源项目</a>
+              </span>
+              <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+              <span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+            </div>
+            <a class="disqus-comment-count" data-disqus-identifier="2019/12/30/github个人网站搭建及仓库管理/"
+              href="/2019/12/30/github个人网站搭建及仓库管理/#disqus_thread"></a> <a class="disqus-comment-count"
+              href="/2019/12/30/github个人网站搭建及仓库管理/#vcomment"> <span class="valine-comment-count" data-xid="/2019/12/30/github个人网站搭建及仓库管理/"></span><span>条评论</span>
+            </a>
+            <div class="clear">
+              <div class="toc-article" id="toc">
+                <div class="toc-title">文章目录</div>
+					<ol class="toc">
+					  <li class="toc-item toc-level-3"><a class="toc-link" href="#安装Pyinstaller"><span class="toc-number">一、</span> <span class="toc-text">安装Pyinstaller</span></a></li>
+					      <ol class="toc">
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#1.1"><span class="toc-number">1.</span> <span class="toc-text">安装pywin32</span></a></li>
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#1.2"><span class="toc-number">2.</span> <span class="toc-text">安装Pyinstaller</span></a></li>
+			              </ol>
+			          <li class="toc-item toc-level-3"><a class="toc-link" href="#使用Pyinstaller"><span class="toc-number">二、</span> <span class="toc-text">使用Pyinstaller</span></a></li>
+					      <ol class="toc">
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#2.1"><span class="toc-number">1.</span> <span class="toc-text">使用下载安装的方式安装的Pyinstaller打包方式</span></a></li>
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#2.2"><span class="toc-number">2.</span> <span class="toc-text">使用pip方式安装的Pyinstaller打包方式</span></a></li>
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#2.3"><span class="toc-number">3.</span> <span class="toc-text">输入参数的含义</span></a></li>
+			              </ol>
+			          <li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">三、</span> <span class="toc-text">注意事项</span></a></li>
+			              <ol class="toc">
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#3.1"><span class="toc-number">1.</span> <span class="toc-text">给程序换图标的方法</span></a></li>
+			                  <li class="toc-item toc-level-3"><a class="toc-link" href="#3.2"><span class="toc-number">2.</span> <span class="toc-text">打包图片或引入其他文件</span></a></li>
+			              </ol>
+			          <li class="toc-item toc-level-3"><a class="toc-link" href="#生成exe文件"><span class="toc-number">四、</span> <span class="toc-text">生成exe文件</span></a></li>
+					</ol>
+              </div>
+            </div>
+            <div class="post-content">
+              <p style="text-indent: 2em;">平常我们在本地电脑构建服务器编写网站之后，只能在局域网内去访问，换个局域网就访问不了，要解决这个问题，就需要使用一个可以任意访问的服务器，我们可以去购买注册，然后还有一些免费的供我们使用，这里我选用的是github提供的GitHub Pages来发布个人网站。今天就抽出时间总结一下使用github个人网站搭建，以及使用git工具管理仓库的方法。</p>
+              <h3 id="安装Pyinstaller">一、安装Pyinstaller</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="1.1">
+                    <span class="toc-text">安装pywin32</span>
+                    <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">下载安装文件：查找到跟自己适用的python版本及window系统版本匹配的 pywin32 ，下载后安装 </span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">使用pip命令安装：pip install pywin32</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="1.2">
+                 <span class="toc-text">安装Pyinstaller</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">下载安装文件安装：</span><a href="http://www.pyinstaller.org/ " target="_blank">Pyinstaller官网</a></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">使用pip命令安装：pip install Pyinstaller</span></li>
+                    </ul>
+                 </li>
+              </ol>
+              <h3 id="使用Pyinstaller">二、使用Pyinstaller</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="2.1">
+                    <span class="toc-text">使用下载安装的方式安装的Pyinstaller打包方式</span><br>
+                    <span>将需要打包的文件放在解压得到的Pyinstaller文件夹中，打开cmd窗口，把路径切换到当前路径打开命令提示行，输入以下内容（最后的是文件名）：</span>
+                    <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">python pyinstaller.py -F myfile.py</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="2.2">
+                 <span class="toc-text">使用pip方式安装的Pyinstaller打包方式</span><br>
+                 <span>打开cmd窗口，把路径切换到文件所在路径(文件随便放在哪里都行)打开命令提示行，输入以下内容（最后的是文件名）：</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">pyinstaller -F myfile.py</span></li>
+                    </ul>
+                 </li>
+                 <li class="toc-item toc-level-3" id="2.3">
+                 <span class="toc-text">输入参数的含义</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-F 表示生成单个可执行文件</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-c 创建一个命令行程序（就是那个小黑框），这是默认的选项</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-w 表示去掉控制台窗口，这在GUI界面时非常有用。不过如果是命令行程序的话那就去掉这个选项</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-p 表示你自己自定义需要加载的类路径，一般情况下用不到</span></li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">-i 表示可执行文件的图标</span></li>
+                    </ul>
+                 </li>
+              </ol>
+              <h3 id="注意事项">三、注意事项</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="3.1">
+                    <span class="toc-text">给程序换图标的方法</span><br>
+                   <span>上面已经说过，参数-i 表示可执行文件的图标，因此输入命令中添加一个-i tubiao.ico(图标的相对路径)。打开cmd窗口，把路径切换到文件所在路径(文件随便放在哪里都行)打开命令提示行，输入以下内容：</span>
+                   <pre style="color:white">C:\Users\Administrator\Appdata\Local\Programs\Python\Scripts>pyinstaller -F -i tubiao.ico myfile.py</pre>
+                 </li>
+                 <li class="toc-item toc-level-3" id="3.2">
+                 <span class="toc-text">打包图片或引入其他文件</span><br>
+                 <span>有时候我们的程序会用到图片或其他文件，但是pyinstaller打包出来的程序是不包含这些的的，这时候程序就没办法正常运行。以打包图片为例，网上找了很多办法，要么需要配置spec，要么把图片转化成 .py 文件，然后再引入主程序py</span>
+                 <span>相比较来说，这些都比较麻烦，这里我参考了配置spec的方法，不需要去管配置spec文件，只要将图片放入程序运行目录，然后再程序中调用即可</span>
+                 <ul>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">主程序导入os，使用path.dirname(path.abspath(__file__))获取获取到的时主程序python文件的目录（打包前是此文件目录，打包后就是程序运行时的临时目录）</li>
+                        <li class="toc-item toc-level-3" >
+                        <span class="toc-text">在主程序中使用此路径调用图片，如：path+r'\tubiao.ico'，加上"r"使"\"不转义，否则会报错。</span></li>
+                  </ul>
+                  <span>例如，Python文件打包后，exe文件打开后，左上角默认图标为：</span><table><tr><td width="20%"><img src="/imgs/羽毛.png"></td><td width="80%"></td></tr></table>
+                  <span>我使用如下代码，去自定义程序窗口左上角的图标：</span>
+                 </li>
+              </ol>
+              <pre><code>path=path.dirname(path.abspath(__file__))
+window.iconbitmap(path+r'\3D.ico')</code></pre>
+              <ol style="list-style:none;">
+                 <li>
+                    <span>再次打包文件，左上角默认图标变为我们自定义的样子：</span><table><tr><td width="20%"><img  src="/imgs/旋转.png"></td><td width="80%"></td></tr></table>
+                 </li>
+              </ol>
+              <h3 id="生成exe文件">四、生成exe文件</h3>
+              <ol class="toc">
+                 <li class="toc-item toc-level-3" id="4.1">
+                    <span class="toc-text">如果程序打包过程没有报错，则会生成3个文件夹（有时候是2个）和一个myfile.spec的文件，其中名为dist的文件夹中会有一个myfile.exe文件，运行一下，如果没有问题就打包成功，可以把这个exe文件单独拿出去用，其他的生成的文件和文件夹删掉就可以了。</span><br>
+                 </li>
+                 <li class="toc-item toc-level-3" id="4.2">
+                 <span class="toc-text">如果你有使用依赖文件或者图片，那么运行myfile.exe文件的时候会报错或者闪退，甚至打不开，这个时候，只要把依赖文件放入dist或者myfile文件的相同目录就可以了。</span>
+                 </li>
+              </ol>
+              <h3>附录</h3>
+              <table border="1">
+                <caption>PyInstaller 支持的常用选项</caption>
+                <tbody>
+                   <tr>
+                      <th>-h，--help</th>
+                      <th>查看该模块的帮助信息</th>
+                   </tr><tr>
+                      <td>-F，-onefile</td>
+                      <td>产生单个的可执行文件</td>
+                   </tr><tr>
+				      <td>-D，--onedir</td>
+				      <td>产生一个目录（包含多个文件）作为可执行程序</td>
+				   </tr><tr>
+				      <td>-a，--ascii</td>
+				      <td>不包含 Unicode 字符集支持</td>
+				  </tr><tr>
+				      <td>-d，--debug</td>
+				      <td>产生 debug 版本的可执行文件</td>
+				  </tr><tr>
+				      <td>-w，--windowed，--noconsolc</td>
+				      <td>指定程序运行时不显示命令行窗口（仅对 Windows 有效）</td>
+				  </tr><tr>
+				      <td>-c，--nowindowed，--console</td>
+				      <td>指定使用命令行窗口运行程序（仅对 Windows 有效）</td>
+				  </tr><tr>
+				      <td>-o DIR，--out=DIR</td>
+				      <td>指定 spec 文件的生成目录。如果没有指定，则默认使用当前目录来生成 spec 文件</td>
+				  </tr><tr>
+				      <td>-p DIR，--path=DIR</td>
+				      <td>设置 Python 导入模块的路径（和设置 PYTHONPATH 环境变量的作用相似）。也可使用路径分隔符（Windows 使用分号，<a href="/linux_tutorial/" target="_blank">Linux</a> 使用冒号）来分隔多个路径</td>
+				  </tr><tr>
+				      <td>-n NAME，--name=NAME</td>
+				      <td>指定项目（产生的 spec）名字。如果省略该选项，那么第一个脚本的主文件名将作为 spec 的名字</td>
+				  </tr>
+				</tbody>
+                <tfoot>
+                <tr><td colspan="2">在表中列出的只是 PyInstaller 模块所支持的常用选项，如果需要了解 PyInstaller 选项的详细信息，则可通过 pyinstaller -h 来查看。</td></tr>
+                </tfoot>
+	       </table>
+              <nav class="page-navigator"></nav>
+            </div>
+          </div>
+          <!--           <script id="dsq-count-scr" src="//sunshiinesy.disqus.com/count.js" async></script> -->
+        </div>
+      </div>
+      <div id="sidecon" class="pure-u-1-4 hidden_mid_and_down">
+      </div>
+      <div class="pure-u-1 pure-u-md-3-4">
+        <p align="center">
+          <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+          <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>
+        </p>
+        <div id="footer">
+        </div>
+      </div>
+      <div class="pure-u-1-4 hidden_mid_and_down"></div>
+    </div>
+    <a class="show" id="rocket" href="#top"></a>
+    <script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script>
+    <script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css">
+    <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
+    <script>
+    var common_path = '/common/common.xml';
+    gethtml(common_path,"archives");
+    
+    var search_path = 'search.xml';
+    if (search_path.length == 0) {
+      search_path = 'search.xml';
+    }
+    var path = '/' + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+         var hm = document.createElement("script");
+         hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+         var s = document.getElementsByTagName("script")[0];
+         s.parentNode.insertBefore(hm, s);
+     })();
+    //监听copy事件（兼容IE）
+    document.body.oncopy = function(e) {
+         setClipboardText(e, 100);
+    }
+    </script>
+    <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
+    <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
+  </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+  <script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+ <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+<div>
+  <a href="https://github.com/sunshinesy"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>
