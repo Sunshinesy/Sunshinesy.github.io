@@ -107,14 +107,17 @@ var gethtml = function(path,menu) {
 			data_content=data_content.replace('id="'+menu+'"','id="'+menu+'" class="current"');
 		    }
                     $('#header').append(data_content);
+		}else if(data_title == 'gameheader' && data_content != '') {
+                    if(menu!=""){
+			data_content=data_content.replace('id="'+menu+'"','id="'+menu+'" class="current"');
+		    }
+		    $('#gameheader').append(data_content);
 		}else if(data_title == 'sidecon' && data_content != '') {
                     $('#sidecon').append(data_content);
 		}else if(data_title == 'footer' && data_content != '') {
                     $('#footer').append(data_content);
 		}else{
-		    $('#header').append("加载失败！");
-		    $('#sidecon').append("加载失败！");
-		    $('#footer').append("加载失败！");					
+		    $('#'+data_title).append("加载失败！");
 		}
             });
         }
