@@ -74,11 +74,14 @@
 		  <li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li>
 		  <li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li>
 		  <li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li>
-		  
+		  <li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li>
+		  <li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li>
+		  <li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li>
+		  <li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li>
 		</ul>
-		</td><td style='padding-top:5px;'>
+		</td><td style='padding-top:2px;'>
 		  <div class="calendar">
-		    <div class="pages" style="height:150px;"></div>
+		    <div class="pages" height="150px"></div>
 		  </div>
 		</td></tr>
 	      </table>
