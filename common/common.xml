@@ -26,6 +26,29 @@
 	  ]]></content>
       
     </entry>
+
+    <entry>
+      <title>gameheader</title>
+      <content type="html">
+	  <![CDATA[
+	    <div class="site-name">
+			&nbsp&nbsp&nbsp&nbsp&nbsp<a id="logo" href="/.">Sunshiinesy'blog</a>
+		</div>
+		<div id="nav-menu">
+			<a id="home" class="current" href="/."> <i class="fa fa-home"> 主页</i>
+			</a><a id="archives" href="/archives/"> <i class="fa fa-archive"> 文章</i>
+			</a><a id="history"href="/history"> <i class="fa fa-calendar"> 历史</i>
+			</a><a id="books" href="/books"> <i class="fa fa-book"> 书籍</i>
+			</a><a id="movies" href="/movies"> <i class="fa fa-film"> 电影</i>
+			</a><a id="games" href="/games"> <i class="fa fa-gamepad"> 游戏</i>
+			</a><a id="gallery." href="/gallery.html"> <i class="fa fa-photo"> 相册</i>
+			</a><a id="resume" href="/resume"> <i class="fa fa-user"> 关于</i>
+			</a><a id="atom" href="/atom.xml"> <i class="fa fa-rss"> RSS</i>
+			</a>
+		</div>
+	  ]]></content>
+      
+    </entry>
 	
     <entry>
       <title>sidecon</title>
