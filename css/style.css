@@ -139,7 +139,7 @@ div {
 
 .calendar {
   position: relative;
-  width: 152px;
+  width: 100px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -151,7 +151,7 @@ div {
   content: '';
   position: absolute;
   top: -28px;
-  left: 40px;
+  left: 20px;
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -160,7 +160,7 @@ div {
 }
 .calendar::after {
   left: initial;
-  right: 40px;
+  right: 20px;
 }
 .pages {
   position: relative;
@@ -172,7 +172,7 @@ div {
   content: '';
   position: absolute;
   width: 100%;
-  height: 45px;
+  height: 40px;
   background: indianred;
   bottom: 100%;
   left: 0;
@@ -180,7 +180,7 @@ div {
 }
 .page {
   position: relative;
-  padding: 20px 30px 15px;
+  padding: 5px 10px 4px;
   background: #eee;
 }
 .page::before {
