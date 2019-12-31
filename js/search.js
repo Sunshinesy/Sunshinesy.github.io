@@ -117,7 +117,7 @@ var gethtml = function(path,menu) {
 		}else if(data_title == 'footer' && data_content != '') {
                     $('#footer').append(data_content);
 		}else{
-		    $('#'+data_title).append("加载失败！");
+		   // $('#'+data_title).append("加载失败！");
 		}
             });
         }
