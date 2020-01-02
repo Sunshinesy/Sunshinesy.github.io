@@ -176,7 +176,7 @@ div {
 }
 .currentDay {
   float: right;
-  margin-left: 5px;
+  margin-left: 1px;
 }
 .nextMonth {
   float: right;
