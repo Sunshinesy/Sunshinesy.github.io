@@ -298,8 +298,8 @@
 
 			//生成当月的日期
 			for (var i = 0; i < nowDaysNub; i++) {
-			  if (i == (nowDay - 1)) $dayItem.append("<div class=\"item currentItem\"><a>" + (i + 1) + "</a></div>");
-			  else $dayItem.append("<div class=\"item\"><a>" + (i + 1) + "</a></div>");
+			  if (i == (nowDay - 1)) $dayItem.append("<div class=\"item currentItem\" style=\"font-weight:bold;\"><a>" + (i + 1) + "</a></div>");
+			  else $dayItem.append("<div class=\"item\" style=\"font-weight:bold;\"><a>" + (i + 1) + "</a></div>");
 			}
 
 			//获取总共已经生成的天数
