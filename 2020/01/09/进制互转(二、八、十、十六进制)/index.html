@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+
+<meta content="telephone=no" name="format-detection">
+
+<meta name="description">
+
+<title>Sunshinesy 'blog</title>
+
+<link rel="stylesheet" href="/js/highlight/styles/tomorrow-night-bright.css">
+
+<script src="/js/highlight/highlight.pack.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=0.1.1">
+
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"> -->
+
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css">
+
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="alternate" type="application/atom+xml" href="/atom.xml">
+
+<script src="/js/copyright.js"></script>
+
+</head>
+
+<body>
+
+  <div class="body_container" style="padding: 0 0px;">
+
+    <div id="header" style="background: url('/imgs/baimama.jpg') no-repeat; background-size: 100% 100%">
+
+    <!-- logo and menu-->
+
+    </div>
+
+    <div class="pure-g" id="layout">
+
+      <div class="pure-u-1 pure-u-md-3-4">
+
+        <div id="major" class="content_container">
+
+          <div class="post">
+
+            <!--博客全文 -->
+
+            <h1 class="post-title">PHP、JS、Python之 "Hello World"</h1>
+
+            <div class="post-meta">
+
+              2019-11-05 <span> | </span> <span class="category"> <a href="/categories/JS/">JS</a>
+
+              </span>
+
+              <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+              <span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+
+            </div>
+
+            <a class="disqus-comment-count" data-disqus-identifier="2019/11/05/PHP、JS、Python的 'Hello World'/"
+
+              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#disqus_thread"></a> <a class="disqus-comment-count"
+
+              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#vcomment"> <span class="valine-comment-count" data-xid="/2019/11/05/PHP、JS、Python的 'Hello World'/"></span><span>条评论</span>
+
+            </a>
+
+            <div class="clear">
+
+              <div class="toc-article" id="toc">
+
+                <div class="toc-title" onclick="setclass('archives')">文章目录</div>
+
+                  <ol class="toc">
+
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func1"><span class="toc-number">1、</span> <span class="toc-text">escape 和 unescape</span></a></li>
+
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func2"><span class="toc-number">2、</span> <span class="toc-text">encodeURI 和 decodeURI</span></a></li>
+
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func3"><span class="toc-number">3、</span> <span class="toc-text">encodeURIComponent 和 decodeURIComponent</span></a></li>
+
+                  </ol>
+
+              </div>
+
+            </div>
+
+            <div class="post-content">
+
+              <p>最近使用js实现copyright时，用到window.location.href来获取网页地址，然后监听copy事件，将网页地址添加到复制内容之后的声明中。</p>
+
+              <p>当网页地址为纯英文字符时，网址正常显示：https://sunshinesy.github.io/</p>
+
+              <p>当网页地址包含中文字符时，网址中文字符显示为乱码：https://sunshinesy.github.io/2019/12/09/python%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E3%80%90WinError%2010061%E3%80%91/</p>
+
+              <p>显然window.location.href将网址中的中文字符给转化成了其他编码，查阅资料得知，类似"%E6%9C%8D%E5%8A"的编码正是URI编码，使用解码函数就可以将其转化为正常的中文显示。</p>
+
+              <p>我用到的解码函数为decodeURI(url)，解码后网址中文字符显示正常：https://sunshinesy.github.io/2019/12/09/python服务器连接错误【WinError 10061】/</p>
+
+              <hr>
+
+              <p>这里不得不记录一下URL编码与解码的几种函数，以便后用。</p>
+
+              <h3 id="func1">1、escape 和 unescape</h3>
+
+              <p>escape()不能直接用于URI编码，它的真正作用是返回一个字符的Unicode编码值。</p>
+
+              <p>它的具体规则是，除了ASCII字母、数字、标点符号"@ * _ + - . /"以外，对其他所有字符进行编码。在u0000到u00ff之间的符号被转成%xx的形式，其余符号被转成%uxxxx的形式，比如，空格符对应的编码是%20。对应的解码函数是unescape()。</p>
+
+              <p>escape不编码字符有69个：*，+，-，.，/，@，_，0-9，a-z，A-Z。还有两个地方需要注意：</p>
+
+              <p style="text-indent: 2em;">●首先，无论网页的原始编码是什么，一旦被Javascript编码，就都变为unicode字符。也就是说，Javascipt函数的输入和输出，默认都是Unicode字符。这一点对下面两个函数也适用。</p>
+
+              <p style="text-indent: 2em;">●其次，escape()不对"+"编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服务器处理数据的时候，会把+号处理成空格。所以，使用的时候要小心。</p>
+
+              <p style="color:red">escape()函数用于js对字符串进行编码，不常用。例如下js代码：</p>
+
+              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
+
+escape(url);</code></pre>
+
+              <p>以上url编码后变为：</p>
+
+              <pre>https%3A//sunshinesy.github.io//pro%3Fa%3D5%26b%3D%u5F20%u4E09%26c%3Daaa</pre>
+
+              <h3 id="func2">2、encodeURI 和 decodeURI</h3>
+
+              <p>把URI字符串采用UTF-8编码格式转化成escape各式的字符串。</p>
+
+              <p>encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z。编码后，它输出符号的utf-8形式，并且在每个字节前加上%。它对应的解码函数是decodeURI()。</p>
+
+              <p style="color:red">encodeURI()用于整个url编码，实例代码如下：</p>
+
+              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
+
+escape(url);</code></pre>
+
+              <p>以上url编码后变为：</p>
+
+              <pre>https://sunshinesy.github.io//pro?a=5&b=%E5%BC%A0%E4%B8%89&c=aaa</pre>
+
+              <h3 id="func3">3、encodeURIComponent 和 decodeURIComponent</h3>
+
+              <p>与encodeURI()的区别是，它用于对URL的组成部分进行个别编码，而不用于对整个URL进行编码。</p>
+
+              <p>因此，"; / ? : @ & = + $ , #"，这些在encodeURI()中不被编码的符号，在encodeURIComponent()中统统会被编码。至于具体的编码方法，两者是一样，把URI字符串采用UTF-8编码格式转化成escape格式的字符串。它对应的解码函数是decodeURIComponent()。</p>
+
+              <p>示例代码如下：</p>
+
+              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
+
+encodeURIComponent(url);</code></pre>
+
+              <p>以上url编码后变为：</p>
+
+              <pre>https%3A%2F%2Fsunshinesy.github.io%2F%2Fpro%3Fa%3D5%26b%3D%E5%BC%A0%E4%B8%89%26c%3Daaa</pre>
+
+              <p>可以看到，encodeURIComponent将特殊字符也进行了编码，因此一般将encodeURIComponent() 用于参数的传递。</p>
+
+              <pre><code>var paramUrl = "https://sunshinesy.github.io//aa?a=5&b=张三&c=aaa";
+
+var url = "https://sunshinesy.github.io//bb?a=5&b="+paramUrl;
+
+encodeURIComponent(paramUrl);</code></pre>
+
+              <p>结果得到url编码为</p>
+
+              <pre>https://sunshinesy.github.io//bb?a=5&b=https%3A%2F%2Fsunshinesy.github.io%2F%2Faa%3Fa%3D5%26b%3D%E5%BC%A0%E4%B8%89%26c%3Daaa</pre>
+
+              <p>文章参考: </p>
+
+              <p>http://www.cnblogs.com/douJiangYouTiao888/p/6473874.html</p>
+
+              <nav class="page-navigator"></nav>
+
+              <hr>
+
+            </div>
+
+          </div>
+
+          <!--           <script id="dsq-count-scr" src="//sunshiinesy.disqus.com/count.js" async></script> -->
+
+        </div>
+
+      </div>
+
+      <div id="sidecon" class="pure-u-1-4 hidden_mid_and_down">
+
+      </div>
+
+      <div class="pure-u-1 pure-u-md-3-4">
+
+        <p align="center">
+
+          <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+          <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次
+
+          </span>
+
+        </p>
+
+        <div id="footer">
+
+        </div>
+
+      </div>
+
+      <div class="pure-u-1-4 hidden_mid_and_down"></div>
+
+    </div>
+
+    <a class="show" id="rocket" href="#top"></a>
+
+    <script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script>
+
+    <script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script>
+
+    <script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css">
+
+    <script type="text/javascript" src="/js/search.js?v=0.0.3"></script>
+
+    <script>
+
+    var common_path = '/common/common.xml';
+
+    gethtml(common_path,"archives");
+
+    
+
+    var search_path = 'search.xml';
+
+    if (search_path.length == 0) {
+
+      search_path = 'search.xml';
+
+    }
+
+    var path = '/' + search_path;
+
+    searchFunc(path, 'local-search-input', 'local-search-result');
+
+    </script>
+
+    <script>
+
+    var _hmt = _hmt || [];
+
+    (function() {
+
+         var hm = document.createElement("script");
+
+         hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+
+         var s = document.getElementsByTagName("script")[0];
+
+         s.parentNode.insertBefore(hm, s);
+
+     })();
+
+    //监听copy事件（兼容IE）
+
+    document.body.oncopy = function(e) {
+
+         setClipboardText(e, 100);
+
+    }
+
+    </script>
+
+    <script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script>
+
+    <script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script>
+
+  </div>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+
+  <script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+
+ <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
+
+<div>
+
+  <a href="https://github.com/sunshinesy"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;"
+
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+</div>
