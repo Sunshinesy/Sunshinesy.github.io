@@ -63,6 +63,7 @@
             </div>
           </div>
           <div class="widget">
+	    <div class="widget-title"></div>
             <div id="CalendarMain">
 		<div id="title"><a class="selectBtn month" href="javascript:" onClick="CalendarHandler.CalculateLastMonthDays();"><</a><a class="selectBtn currentDay" href="javascript:" onClick="CalendarHandler.CreateCurrentCalendar(0,0,0);">今天</a><a class="selectBtn selectYear" href="javascript:" onClick="CalendarHandler.CreateSelectYear(CalendarHandler.showYearStart);">2020年</a><a class="selectBtn selectMonth" onClick="CalendarHandler.CreateSelectMonth()">9月</a> <a class="selectBtn nextMonth" href="javascript:" onClick="CalendarHandler.CalculateNextMonthDays();">></a></div>
 		<div id="context">
