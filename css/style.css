@@ -140,12 +140,12 @@ div {
 #CalendarMain {
   width: 200px;
   height: 220px;
-/*   padding-left: 0px;
-  margin-left: 0px;
+/*   padding-left: 0px; */
+/*   margin-top: 20px; */
   background-color: #fff;
   border: 1px solid #ccc;
-  margin: 0 auto;
-  margin-top: 0px; */
+/*   margin: 0 auto; */
+  margin-top: 20px;
 }
 #title {
   width: 100%;
