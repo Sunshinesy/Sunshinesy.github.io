@@ -32,31 +32,55 @@
             <!--博客全文 -->
             <h1 class="post-title">进制互转(二、八、十、十六进制)</h1>
             <div class="post-meta">
-              2020-01-09 <span> | </span> <span class="category"> <a href="/categories/JS/">JS</a>
+              2020-01-09 <span> | </span> <span class="category"> <a href="/categories/编程相关/">编程相关</a>
               </span>
               <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
               <span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
             </div>
-            <a class="disqus-comment-count" data-disqus-identifier="2019/11/05/PHP、JS、Python的 'Hello World'/"
-              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#disqus_thread"></a> <a class="disqus-comment-count"
-              href="/2019/11/05/PHP、JS、Python的 'Hello World'/#vcomment"> <span class="valine-comment-count" data-xid="/2019/11/05/PHP、JS、Python的 'Hello World'/"></span><span>条评论</span>
+            <a class="disqus-comment-count" data-disqus-identifier="2020/01/09/进制互转(二、八、十、十六进制)/"
+              href="/2020/01/09/进制互转(二、八、十、十六进制)/#disqus_thread"></a> <a class="disqus-comment-count"
+              href="/2020/01/09/进制互转(二、八、十、十六进制)/#vcomment"> <span class="valine-comment-count" data-xid="/2020/01/09/进制互转(二、八、十、十六进制)/"></span><span>条评论</span>
             </a>
             <div class="clear">
               <div class="toc-article" id="toc">
                 <div class="toc-title" onclick="setclass('archives')">文章目录</div>
                   <ol class="toc">
-                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func1"><span class="toc-number">1、</span> <span class="toc-text">escape 和 unescape</span></a></li>
-                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func2"><span class="toc-number">2、</span> <span class="toc-text">encodeURI 和 decodeURI</span></a></li>
-                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func3"><span class="toc-number">3、</span> <span class="toc-text">encodeURIComponent 和 decodeURIComponent</span></a></li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func1"><span class="toc-number">1、</span> <span class="toc-text">传统数学方法</span></a></li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func2"><span class="toc-number">2、</span> <span class="toc-text">Python的进制转换</span></a></li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func3"><span class="toc-number">3、</span> <span class="toc-text">PHP的进制转换</span></a></li>
+                    <li class="toc-item toc-level-3"><a class="toc-link" href="#func4"><span class="toc-number">4、</span> <span class="toc-text">JS的进制转换</span></a></li>
                   </ol>
               </div>
             </div>
             <div class="post-content">
-              <p>最近使用js实现copyright时，用到window.location.href来获取网页地址，然后监听copy事件，将网页地址添加到复制内容之后的声明中。</p>
-              <p>当网页地址为纯英文字符时，网址正常显示：https://sunshinesy.github.io/</p>
-              <p>当网页地址包含中文字符时，网址中文字符显示为乱码：https://sunshinesy.github.io/2019/12/09/python%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E3%80%90WinError%2010061%E3%80%91/</p>
-              <p>显然window.location.href将网址中的中文字符给转化成了其他编码，查阅资料得知，类似"%E6%9C%8D%E5%8A"的编码正是URI编码，使用解码函数就可以将其转化为正常的中文显示。</p>
-              <p>我用到的解码函数为decodeURI(url)，解码后网址中文字符显示正常：https://sunshinesy.github.io/2019/12/09/python服务器连接错误【WinError 10061】/</p>
+              <p>编程过程中，进制转换是经常会遇到的东西，涉及到二进制、八进制、十进制以及十六进制等等，下面先总结下进制转换的基本知识，在总结如何在编程中实现进制转换。</p>
+              <p>多进制转十进制：</p>
+              <p>以二进制为例，1101 转为十进制 1*2^(4-1)+1*2^(3-1)+0*2^(2-1)+1*2^(1-1) 即各个位拆开，乘以2的（位数-1）次方，结果为13</p>
+              <p>同理可得：把八进制、十六进制数按权展开、相加即得十进制数。</p>
+              <p>权值和第几位相关，n进制第i位的权值是n的(i-1)次方。例如：</p>
+              <p>十进制13579，常说的百位是5，其背后的理由是10^(3-1)=100</p>
+              <p>十六进制1A2B，B所处位的权值是16^(1-1)=1（即个位），1所处位的权值是16^(4-1)=4096</p>
+              <p>对于多位数，处在某一位上的“l”所表示的数值的大小，称为该位的位权。例如十进制第2位的位权为10，第3位的位权为100；而二进制第2位的位权为2，第3位的位权为4，对于 N进制数，整数部分第 i位的位权为N^(i-1)，而小数部分第j位的位权为N^-j。</p>
+              <p>十进制转二进制：</p>
+              <p>比如13 用13除以2，得到的商再除以2 直到除到1，然后记录每次得到的余数， 从后往前读，即为 1101</p>
+              <p>同理可得，十进制转八进制或者十六进制按照除8或者16取余，直到商为0为止，再从最后一位读到第一位</p>
+              <p>八进制转为二进制：</p>
+              <p>比如八进制数 (37)8
+              <p>拆开 3   7</p>
+              <p>3用二进制表示为 11</p>
+              <p>7用二进制表示为 111</p>
+              <p>合起来 即为 11 111</p>
+              <p>同理 十六进制转二进制</p>
+              <p>二进制转八进制：</p>
+              <p>二进制从右边数，3位3位为一组，转为十进制比如：</p>
+              <p>10 110 011 111</p>
+              <p>2   6   3   7   对应八进制就是为（2637）8</p>
+              <p>同理十六进制，不过此时二进制应该是 从右往左边数，4位4位为一组</p>
+              <p>101 1001 1111 转为十六进制对应如下：</p>
+              <p> 5    9   f(15)</p>
+              <p>八进制与十六进制之间的转换有两种方法：</p>
+              <p>第一种：他们之间的转换可以先转成二进制然后再相互转换。</p>
+              <p>第二种：他们之间的转换可以先转成十进制然后再相互转换。</p>
               <hr>
               <p>这里不得不记录一下URL编码与解码的几种函数，以便后用。</p>
               <h3 id="func1">1、escape 和 unescape</h3>
