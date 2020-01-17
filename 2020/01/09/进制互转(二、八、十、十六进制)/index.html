@@ -66,12 +66,12 @@
               <p style="text-indent: 2em;">比如13 用13除以2，得到的商再除以2 直到除到1，然后记录每次得到的余数， 从后往前读，即为 1101</p>
               <p style="text-indent: 2em;">同理可得，十进制转八进制或者十六进制按照除8或者16取余，直到商为0为止，再从最后一位读到第一位</p>
               <p style="font-weight: bold;">●八进制转为二进制：</p>
-              <p style="text-indent: 2em;">比如八进制数(157)8，拆开之后为1 5 7，然后用三位二进制分别对上诉三个数字拆分表示，1用二进制表示为001，5用二进制表示为101,7用二进制表示为111，合起来就是001101111，去掉高位的00，即为1101111。</p>
+              <p style="text-indent: 2em;">比如八进制数157(8)，拆开之后为1 5 7，然后用三位二进制分别对上诉三个数字拆分表示，1用二进制表示为001，5用二进制表示为101,7用二进制表示为111，合起来就是001101111，去掉高位的00，即为1101111。</p>
               <p style="text-indent: 2em;">同理 十六进制转二进制，将每个十六进制数字拆分，然后分别用4位二进制数表示，再组合就可以了。</p>
               <p style="font-weight: bold;">●二进制转八进制：</p>
               <p style="text-indent: 2em;">二进制从右边数，3位3位为一组，转为十进制比如：</p>
               <p style="text-indent: 2em;">10 110 011 111</p>
-              <p style="text-indent: 2em;">2   6   3   7   对应八进制就是为（2637）8</p>
+              <p style="text-indent: 2em;">2   6   3   7   对应八进制就是为2637(8)</p>
               <p style="text-indent: 2em;">同理十六进制，不过此时二进制应该是 从右往左边数，4位4位为一组</p>
               <p style="text-indent: 2em;">101 1001 1111 转为十六进制对应如下：</p>
               <p style="text-indent: 2em;"> 5    9   f(15)</p>
@@ -82,11 +82,22 @@
               <p>以上是纯数学概念的进制转换方法，在编程语言中，这些方法都已经被编写成了内置进制转换函数，我们只需要调用对应的转换函数就可以轻松的实现进制转换。</p>
               <h3 id="func2">2、Pythond的进制转换</h3>
               <p style="text-indent: 2em;">Python内置函数：二进制bin()、八进制oct()、十进制int()、十六进制hex()可实现进制转换，需要注意的是bin()、oct()、hex()的返回值均为字符串，且分别带有0b、0o、0x前缀，int()返回十进制整数。</p>
-              <p>它的具体规则是，除了ASCII字母、数字、标点符号"@ * _ + - . /"以外，对其他所有字符进行编码。在u0000到u00ff之间的符号被转成%xx的形式，其余符号被转成%uxxxx的形式，比如，空格符对应的编码是%20。对应的解码函数是unescape()。</p>
-              <p>escape不编码字符有69个：*，+，-，.，/，@，_，0-9，a-z，A-Z。还有两个地方需要注意：</p>
-              <p style="text-indent: 2em;">●首先，无论网页的原始编码是什么，一旦被Javascript编码，就都变为unicode字符。也就是说，Javascipt函数的输入和输出，默认都是Unicode字符。这一点对下面两个函数也适用。</p>
-              <p style="text-indent: 2em;">●其次，escape()不对"+"编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服务器处理数据的时候，会把+号处理成空格。所以，使用的时候要小心。</p>
-              <p style="color:red">escape()函数用于js对字符串进行编码，不常用。例如下js代码：</p>
+              <ol>
+                <li>bin() 函数：返回一个整数 int 或者长整数 long int 的二进制表示。语法：bin(x)</li>
+                <li>oct() 函数：将一个整数转换成8进制字符串。语法：oct(x)</li>
+                <li>int() 函数：用于将一个字符串或数字转换为整型。语法：int(x, base=10)</li>
+                <li>hex() 函数：用于将10进制整数转换成16进制，以字符串形式表示。语法：hex(x)</li>
+              </ol>
+              <div>
+                <p>它们之间相互转化的方法见下表：</p>
+                <table border="1">
+                  <tr><td></td><td>2进制</td><td>8进制</td><td>10进制</td><td>16进制</td></tr>
+                  <tr><td>2进制</td><td>*</td><td>bin(int(x, 8))</td><td>bin(int(x, 10))</td><td>bin(int(x, 16))</td></tr>
+                  <tr><td>8进制</td><td>oct(int(x, 2))</td><td>*</td><td>oct(int(x, 10))</td><td>oct(int(x, 16))</td></tr>
+                  <tr><td>10进制</td><td>int(x, 2)</td><td>int(x, 8)</td><td>*</td><td>int(x, 16)</td></tr>
+                  <tr><td>16进制</td><td>hex(int(x, 2))</td><td>hex(int(x, 8))</td><td>hex(int(x, 10))</td><td>*</td></tr>
+                </table>
+              </div>
               <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
 escape(url);</code></pre>
               <p>以上url编码后变为：</p>
