@@ -111,37 +111,40 @@ def main():
     #十六进制转换为八进制
     dd_o = oct(dd)                  #八进制字符串：0o144
     #十六进制转换为十进制
-    dd_x = hex(dd)                 #十进制整数：0x64
+    dd_x = hex(dd)                  #十进制整数：0x64
     
     #二进制字符串
     bb = '0b1101111'
     #二进制转换为八进制
-    bb_o = oct(int(bb, 2))      #八进制字符串：0o157
+    bb_o = oct(int(bb, 2))         #八进制字符串：0o157
     #二进制转换为十进制
     bb_n = int(bb, 2)              #十进制整数：111
     #二进制转换为十六进制
-    bb_x = hex(int(bb, 2))      #八进制字符串：0x6f
+    bb_x = hex(int(bb, 2))         #八进制字符串：0x6f
     
     #八进制字符串
     oo = '0o254'
     #八进制转换为二进制
-    oo_b = bin(int(oo, 8))      #二进制字符串：0b10101100
+    oo_b = bin(int(oo, 8))         #二进制字符串：0b10101100
     #八进制转换为十进制
     oo_d = int(oo, 8)              #十进制整数：172
     #八进制转换为十六进制
-    oo_x = hex(int(oo, 8))      #十六进制字符串：0xac
+    oo_x = hex(int(oo, 8))         #十六进制字符串：0xac
     
     #十六进制字符串
     xx = '0xf9a'
     #十六进制转换为二进制
-    xx_b = bin(int(xx, 16))      #二进制字符串：0b111110011010
+    xx_b = bin(int(xx, 16))        #二进制字符串：0b111110011010
     #十六进制转换为八进制
-    xx_o = oct(int(xx, 16))      #八进制字符串：0o7632
+    xx_o = oct(int(xx, 16))        #八进制字符串：0o7632
     #十六进制转换为十进制
-    xx_d = int(xx, 16)      #十进制整数：3994
+    xx_d = int(xx, 16)             #十进制整数：3994
     
 if __name__ == '__main__':
     main()</code></pre>
+              <p>下面是一个可以将十进制整数转换为任意进制（36以内）的函数：</p>
+              <pre><code>def baseN(num, b):
+  return ((num == 0) and "0") or (baseN(num // b, b).lstrip("0") + "0123456789abcdefghijklmnopqrstuvwxyz"[num % b])</code></pre>
               <h3 id="func3">3、PHP的进制转换</h3>
               <p>把URI字符串采用UTF-8编码格式转化成escape各式的字符串。</p>
               <p>encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z。编码后，它输出符号的utf-8形式，并且在每个字节前加上%。它对应的解码函数是decodeURI()。</p>
