@@ -98,10 +98,50 @@
                   <tr><td>16进制</td><td>hex(int(x, 2))</td><td>hex(int(x, 8))</td><td>hex(int(x, 10))</td><td>*</td></tr>
                 </table>
               </div>
-              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
-escape(url);</code></pre>
-              <p>以上url编码后变为：</p>
-              <pre>https%3A//sunshinesy.github.io//pro%3Fa%3D5%26b%3D%u5F20%u4E09%26c%3Daaa</pre>
+              <p>上述进制互转实例如下：</p>
+              <pre><code>'''
+Created on 2020年01月09日
+@author: Sunshiinesy'
+'''
+def main():
+    #十进制整数
+    dd = 100
+    #十六进制转换为二进制
+    dd_b = bin(dd)                  #二进制字符串：0b1100100
+    #十六进制转换为八进制
+    dd_o = oct(dd)                  #八进制字符串：0o144
+    #十六进制转换为十进制
+    dd_x = hex(dd)                 #十进制整数：0x64
+    
+    #二进制字符串
+    bb = '0b1101111'
+    #二进制转换为八进制
+    bb_o = oct(int(bb, 2))      #八进制字符串：0o157
+    #二进制转换为十进制
+    bb_n = int(bb, 2)              #十进制整数：111
+    #二进制转换为十六进制
+    bb_x = hex(int(bb, 2))      #八进制字符串：0x6f
+    
+    #八进制字符串
+    oo = '0o254'
+    #八进制转换为二进制
+    oo_b = bin(int(oo, 8))      #二进制字符串：0b10101100
+    #八进制转换为十进制
+    oo_d = int(oo, 8)              #十进制整数：172
+    #八进制转换为十六进制
+    oo_x = hex(int(oo, 8))      #十六进制字符串：0xac
+    
+    #十六进制字符串
+    xx = '0xf9a'
+    #十六进制转换为二进制
+    xx_b = bin(int(xx, 16))      #二进制字符串：0b111110011010
+    #十六进制转换为八进制
+    xx_o = oct(int(xx, 16))      #八进制字符串：0o7632
+    #十六进制转换为十进制
+    xx_d = int(xx, 16)      #十进制整数：3994
+    
+if __name__ == '__main__':
+    main()</code></pre>
               <h3 id="func3">3、PHP的进制转换</h3>
               <p>把URI字符串采用UTF-8编码格式转化成escape各式的字符串。</p>
               <p>encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z。编码后，它输出符号的utf-8形式，并且在每个字节前加上%。它对应的解码函数是decodeURI()。</p>
