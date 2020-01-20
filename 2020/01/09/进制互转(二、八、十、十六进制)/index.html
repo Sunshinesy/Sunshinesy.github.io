@@ -146,11 +146,35 @@ if __name__ == '__main__':
               <pre><code>def baseN(num, b):
   return ((num == 0) and "0") or (baseN(num // b, b).lstrip("0") + "0123456789abcdefghijklmnopqrstuvwxyz"[num % b])</code></pre>
               <h3 id="func3">3、PHP的进制转换</h3>
-              <p>把URI字符串采用UTF-8编码格式转化成escape各式的字符串。</p>
-              <p>encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z。编码后，它输出符号的utf-8形式，并且在每个字节前加上%。它对应的解码函数是decodeURI()。</p>
-              <p style="color:red">encodeURI()用于整个url编码，实例代码如下：</p>
-              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
-escape(url);</code></pre>
+              <p>PHP则比较直接一下，它提供了几常见进制之间转换的函数。</p>
+              <ol>
+                <li>二进制转为其他进制：
+                <li>binoct() ---> 转为八进制</li>
+                <li>bindec() ---> 转为十进制</li>
+                <li>binhex() ---> 转为十六进制</li>
+                </li>
+                <li>八进制转为其他进制：
+                <li>octbin() ---> 转为二进制</li>
+                <li>octdec() ---> 转为十进制</li>
+                <li>octhex() ---> 转为十六进制</li>
+                </li>
+                <li>十进制转为其他进制：
+                <li>decbin() ---> 转为二进制</li>
+                <li>decoct() ---> 转为八进制</li>
+                <li>dechex() ---> 转为十六进制</li>
+                </li>
+                <li>十六进制转为其他进制：
+                <li>hexbin() ---> 转为二进制</li>
+                <li>hexoct() ---> 转为八进制</li>
+                <li>hexdec() ---> 转为十进制</li>
+                </li>
+              </ol> 
+              <p>对于上面的这些函数，记起来比较麻烦，你只需要记住着（二进制）bin、（八进制）oct、（十进制）dec、（十六进制）hex就可以了，你要把a进制转为b进制，那就是ab()</p>
+              <pre><code>// PHP进制转换举例
+$bb = '1101'
+$bb_oo = binoct();//把二进制(bin)转为八进制(oct)，输出八进制：15
+$bb_dd = bindec();//把二进制(bin)转为十进制(dec)，输出十进制：13
+$bb_hh = binhex();//把二进制(bin)转为十进制(hex)，输出十六进制：D</code></pre>
               <p>以上url编码后变为：</p>
               <pre>https://sunshinesy.github.io//pro?a=5&b=%E5%BC%A0%E4%B8%89&c=aaa</pre>
               <h3 id="func4">4、JS的进制转换</h3>
