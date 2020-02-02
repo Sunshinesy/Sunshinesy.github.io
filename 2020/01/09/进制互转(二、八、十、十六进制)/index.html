@@ -195,7 +195,7 @@ $hex = "01E";
 echo base_convert($hex,16,2);   //十六进制转二进制，输出：11110
 </code></pre>
               <h3 id="func4">4、JS的进制转换</h3>
-              <p>与encodeURI()的区别是，它用于对URL的组成部分进行个别编码，而不用于对整个URL进行编码。</p>
+              <p>与encodeURI()的区别是，它用于对U行编码。</p>
               <p>因此，"; / ? : @ & = + $ , #"，这些在encodeURI()中不被编码的符号，在encodeURIComponent()中统统会被编码。至于具体的编码方法，两者是一样，把URI字符串采用UTF-8编码格式转化成escape格式的字符串。它对应的解码函数是decodeURIComponent()。</p>
               <p>示例代码如下：</p>
               <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
