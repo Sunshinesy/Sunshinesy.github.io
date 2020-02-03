@@ -195,21 +195,39 @@ $hex = "01E";
 echo base_convert($hex,16,2);   //十六进制转二进制，输出：11110
 </code></pre>
               <h3 id="func4">4、JS的进制转换</h3>
-              <p>与encodeURI()的区别是，它用于对U行编码。</p>
-              <p>因此，"; / ? : @ & = + $ , #"，这些在encodeURI()中不被编码的符号，在encodeURIComponent()中统统会被编码。至于具体的编码方法，两者是一样，把URI字符串采用UTF-8编码格式转化成escape格式的字符串。它对应的解码函数是decodeURIComponent()。</p>
-              <p>示例代码如下：</p>
-              <pre><code>var url = "https://sunshinesy.github.io//pro?a=5&b=张三&c=aaa";
-encodeURIComponent(url);</code></pre>
-              <p>以上url编码后变为：</p>
-              <pre>https%3A%2F%2Fsunshinesy.github.io%2F%2Fpro%3Fa%3D5%26b%3D%E5%BC%A0%E4%B8%89%26c%3Daaa</pre>
-              <p>可以看到，encodeURIComponent将特殊字符也进行了编码，因此一般将encodeURIComponent() 用于参数的传递。</p>
-              <pre><code>var paramUrl = "https://sunshinesy.github.io//aa?a=5&b=张三&c=aaa";
-var url = "https://sunshinesy.github.io//bb?a=5&b="+paramUrl;
-encodeURIComponent(paramUrl);</code></pre>
-              <p>结果得到url编码为</p>
-              <pre>https://sunshinesy.github.io//bb?a=5&b=https%3A%2F%2Fsunshinesy.github.io%2F%2Faa%3Fa%3D5%26b%3D%E5%BC%A0%E4%B8%89%26c%3Daaa</pre>
-              <p>文章参考: </p>
-              <p>http://www.cnblogs.com/douJiangYouTiao888/p/6473874.html</p>
+              <p>JS在进行转换的时候，只能将其他进制的字符串转换为十进制的数字，或者将十进制的数字转换为其他进制的字符串。其核心函数是全局函数 parseInt(str,radix) 与 Number.toString(radix)。</p>
+              <ol>
+                <li>parseInt(str,radix) N进制转十进制
+                  <p>parseInt(string, radix) 将一个字符串 string 转换为 radix 进制的整数， radix 为介于2-36之间的数，返回值为Number类型。</p>
+                  <p><span style="color:red">string ：</span>如果string不是字符串，它底层将通过使用 ToString 抽象操作，将其转成字符串。</p> 
+                  <p><span style="color:red">radix：</span>范围在 [2,36]之间，表示当前 string 表示为几进制，在 radix 为 undefined，或者基数为 0 或者没有指定的情况下，JavaScript 作如下处理：</p>
+                  <ul>
+                    <li>如果字符串 string 以"0x"或者"0X"开头, 则基数是16 (16进制)</li>
+                    <li>如果字符串 string 以"0"开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定</li>
+                    <li>使用10，但是并不是所有的浏览器都遵循这个规定。因此，永远都要明确给出radix参数的值</li>
+                    <li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)</li>
+                  </ul>
+                  <p>如果第一个字符不能被转换成数字，parseInt返回NaN。可以调用isNaN 来判断 parseInt 是否返回 NaN</p>
+                  <p>下面展示一下使用 parseInt实现的N进制转成十进制的代码:</p>
+                  <pre><code>parseInt('321',2) // NaN
+parseInt('321',37) // NaN
+isNaN(parseInt(0101,2)) // true
+parseInt('1010',2) // 二进制 → 十进制  10
+parseInt('1010',5) // 五进制 → 十进制  130
+parseInt('013',8) // 八进制 → 十进制  11
+parseInt('0xAF',16) // 十六进制 → 十进制  17</code></pre>
+                </li>
+                <li>Number.toString(radix) 十进制转换成N进制
+                  <p>Number的一个方法：toString(radix)；返回表示该数字的指定 radix 进制形式的字符串，返回值为String类型。</p>
+                  <p><span style="color:red">Number ：</span>为一个十进制的数值</p>
+                  <p><span style="color:red">radix：</span>范围在 [2,36]之间，表示当前 string 表示为几进制，在 radix 为 undefined，或者基数为 0 或者没有指定的情况下，JavaScript 作如下处理：</p>
+                  <p>下面是一些参考示例：</p>
+                  <pre><code>(15).toString(2) // 十进制 → 二进制  "1111"
+eg: (15).toString(8) // 十进制 → 八进制  "17"
+eg: (15).toString(16) // 十进制 → 十六进制  "f"
+eg: (0xAF).toString() // 十六进制 → 十进制  "175"</code></pre>
+                </li>
+              </ol>
               <nav class="page-navigator"></nav>
               <hr>
             </div>
