@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="post-content">
-              <p>最近使用js实现copyright时，用到window.location.href来获取网页地址，然后监听copy事件，将网页地址添加到复制内容之后的声明中。</p>
+              <p>最近量化使用js实现copyright时，用到window.location.href来获取网页地址，然后监听copy事件，将网页地址添加到复制内容之后的声明中。</p>
               <p>当网页地址为纯英文字符时，网址正常显示：https://sunshinesy.github.io/</p>
               <p>当网页地址包含中文字符时，网址中文字符显示为乱码：https://sunshinesy.github.io/2019/12/09/python%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E3%80%90WinError%2010061%E3%80%91/</p>
               <p>显然window.location.href将网址中的中文字符给转化成了其他编码，查阅资料得知，类似"%E6%9C%8D%E5%8A"的编码正是URI编码，使用解码函数就可以将其转化为正常的中文显示。</p>
