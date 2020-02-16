@@ -426,6 +426,7 @@
               <i class="fa fa-file-o"> 最近文章</i>
             </div>
             <ul class="post-list">
+	      <li class="post-list-item"><a class="post-list-link" href="/2020/02/14/战疫</a></li>
 	      <li class="post-list-item"><a class="post-list-link" href="/2020/01/13/关于量化交易(投资)/">关于量化交易(投资)</a></li>
 	      <li class="post-list-item"><a class="post-list-link" href="/2020/01/09/进制互转(二、八、十、十六进制)/">进制互转(二、八、十、十六进制)</a></li>
 	      <li class="post-list-item"><a class="post-list-link" href="/2019/12/30/github个人网站搭建及仓库管理/">github个人网站搭建及仓库管理</a></li>
